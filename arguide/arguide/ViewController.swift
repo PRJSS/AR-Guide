@@ -50,6 +50,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
 
         // 1. Load plane's scene.
         let planeScene = SCNScene(named: "art.scnassets/label.scn")!
+
         let planeNode = planeScene.rootNode
 
         // 2. Calculate size based on planeNode's bounding box.
@@ -70,7 +71,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         let appearanceAction = SCNAction.scale(to: CGFloat(finalRatio), duration: 0.4)
         appearanceAction.timingMode = .easeOut
         // Set initial scale to 0.
-        planeNode.scale = SCNVector3Make(0.001, 0.001, 0.001)
+        planeNode.scale = SCNVector3Make(1, 1, 1)
         // Add to root node.
         sceneView.scene.rootNode.addChildNode(planeNode)
         // Run the appearance animation.
@@ -132,5 +133,4 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                                       initialModelOrientation: initialOrientation,
                                       finalModelOrientation: finalOrientation)
     }
-
 }
